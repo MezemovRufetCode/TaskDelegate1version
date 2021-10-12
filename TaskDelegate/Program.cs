@@ -3,14 +3,13 @@ namespace TaskDelegate
 {
     class Program
     {
-        delegate void Checkher(int number);
+        public delegate void Checkher<T>(T number);
         static void Main(string[] args)
         {
-            Checkher checkher1 = new Checkher(Find);
             Console.WriteLine("Include test number:");
             int num = int.Parse(Console.ReadLine());
-            checkher1.Invoke(num);
-
+            Action<int> act1 = Find;
+            act1.Invoke(num);
         }
         public static void Find (int num1)
         {
